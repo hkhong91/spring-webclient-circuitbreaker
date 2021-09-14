@@ -1,2 +1,5 @@
 ### 상품 리스트
 GET http://localhost:8080/products
+
+### 상품 조회
+GET http://localhost:8080/products/613f729853885b6d8cdc4ba7

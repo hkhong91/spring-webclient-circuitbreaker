@@ -1,0 +1,25 @@
+management:
+  health:
+    circuitbreakers:
+      enabled: true
+  endpoint:
+    health:
+      show-details: always
+resilience4j:
+  circuitbreaker:
+    configs:
+      default:
+        registerHealthIndicator: true
+        slidingWindowSize: 100
+        minimumNumberOfCalls: 10
+        failureRateThreshold: 50
+        slowCallRateThreshold: 100
+        slowCallDurationThreshold: 5s
+        waitDurationInOpenState: 30s
+        ignoreExceptions:
+          - com.example.circuitbreaker.domain.exception.ClientCustomException
+    instances:
+      productsCircuitBreaker:
+        baseConfig: default
+      productCircuitBreaker:
+        baseConfig: default

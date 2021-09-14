@@ -5,6 +5,7 @@ import com.example.circuitbreaker.domain.client.ProductClient;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 import reactor.core.publisher.Flux;
+import reactor.core.publisher.Mono;
 
 @Service
 @RequiredArgsConstructor
@@ -14,6 +15,11 @@ public class ProductService {
 
   public Flux<ProductResponse> getProducts() {
     return productClient.getProducts()
+        .map(ProductResponse::of);
+  }
+
+  public Mono<ProductResponse> getProduct(String productId) {
+    return productClient.getProduct(productId)
         .map(ProductResponse::of);
   }
 }
