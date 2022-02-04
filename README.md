@@ -1,7 +1,5 @@
 # Spring WebClient Circuit Breaker Sample
 
-https://resilience4j.readme.io/docs/circuitbreaker
-
 ### CircuitBreaker
 
 |config|default|description|
